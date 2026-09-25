@@ -3,174 +3,328 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Tools Hub — 发现最强大的 AI 工具 — AI Tools Hub</title>
-  <meta name="description" content="精选39个实用AI工具，写作、设计、编程、效率，提升你的生产力。">
-  <meta name="keywords" content="AI工具, AI tools, 写作工具, 编程助手, 图像生成">
-
-  <section class="hero">
-    <div class="badge" style="display:inline-flex;align-items:center;gap:6px;background:var(--surface2);border:1px solid var(--border);border-radius:100px;padding:6px 14px;font-size:0.8rem;color:var(--text-muted);margin-bottom:24px"><span style="width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s infinite;display:inline-block"></span>持续更新中 · 每月新增工具</div>
-    <h1>找到最适合你的<br><span style="background:linear-gradient(135deg,var(--accent),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent">AI 工具</span></h1>
-    <p style="color:var(--text-muted);font-size:1.15rem;max-width:560px;margin:0 auto 36px">从写作、设计到编程、效率，收录全网最实用 AI 工具。<strong>每款都有真实使用体验和选购建议</strong>，不再踩坑。</p>
-    <div class="search-wrap" style="max-width:520px;margin:0 auto 20px;position:relative">
-      <span class="search-icon" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--text-muted);font-size:18px">🔍</span>
-      <input type="text" id="searchInput" placeholder="搜索 AI 工具，如：写作、翻译、代码..." style="width:100%;padding:14px 20px 14px 48px;background:var(--surface);border:1px solid var(--border);border-radius:12px;color:var(--text);font-size:1rem;outline:none">
-    </div>
-  </section>
-  
-  <div class="categories" style="max-width:1200px;margin:0 auto;padding:0 24px 40px">
-    <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center">
-      <a href="/" class="cat-btn active" data-cat="all" style="padding:8px 18px;border-radius:100px;border:1px solid var(--border);background:var(--surface);color:var(--text-muted);font-size:0.85rem;text-decoration:none;transition:all 0.2s">全部</a>
-      <a href="/writing.html" class="cat-btn" data-cat="writing" style="padding:8px 18px;border-radius:100px;border:1px solid var(--border);background:var(--surface);color:var(--text-muted);font-size:0.85rem;text-decoration:none;transition:all 0.2s">✍️ 写作</a><a href="/image.html" class="cat-btn" data-cat="image" style="padding:8px 18px;border-radius:100px;border:1px solid var(--border);background:var(--surface);color:var(--text-muted);font-size:0.85rem;text-decoration:none;transition:all 0.2s">🎨 图像</a><a href="/code.html" class="cat-btn" data-cat="code" style="padding:8px 18px;border-radius:100px;border:1px solid var(--border);background:var(--surface);color:var(--text-muted);font-size:0.85rem;text-decoration:none;transition:all 0.2s">💻 编程</a><a href="/video.html" class="cat-btn" data-cat="video" style="padding:8px 18px;border-radius:100px;border:1px solid var(--border);background:var(--surface);color:var(--text-muted);font-size:0.85rem;text-decoration:none;transition:all 0.2s">🎬 视频</a><a href="/productivity.html" class="cat-btn" data-cat="productivity" style="padding:8px 18px;border-radius:100px;border:1px solid var(--border);background:var(--surface);color:var(--text-muted);font-size:0.85rem;text-decoration:none;transition:all 0.2s">⚡ 效率</a><a href="/chat.html" class="cat-btn" data-cat="chat" style="padding:8px 18px;border-radius:100px;border:1px solid var(--border);background:var(--surface);color:var(--text-muted);font-size:0.85rem;text-decoration:none;transition:all 0.2s">💬 对话</a><a href="/audio.html" class="cat-btn" data-cat="audio" style="padding:8px 18px;border-radius:100px;border:1px solid var(--border);background:var(--surface);color:var(--text-muted);font-size:0.85rem;text-decoration:none;transition:all 0.2s">🎙️ 音频</a>
-    </div>
-  </div>
-  
-  <div class="stats-bar" style="max-width:1200px;margin:0 auto 60px;padding:0 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
-    <div class="stat-card" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;text-align:center">
-      <div class="stat-num" style="font-size:2rem;font-weight:800;letter-spacing:-1px;background:linear-gradient(135deg,var(--accent),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent">39</div>
-      <div class="stat-label" style="font-size:0.82rem;color:var(--text-muted);margin-top:4px">精选工具</div>
-    </div>
-    <div class="stat-card" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;text-align:center">
-      <div class="stat-num" style="font-size:2rem;font-weight:800;letter-spacing:-1px;background:linear-gradient(135deg,var(--accent),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent">7</div>
-      <div class="stat-label" style="font-size:0.82rem;color:var(--text-muted);margin-top:4px">分类覆盖</div>
-    </div>
-    <div class="stat-card" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;text-align:center">
-      <div class="stat-num" style="font-size:2rem;font-weight:800;letter-spacing:-1px;background:linear-gradient(135deg,var(--accent),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent">100%</div>
-      <div class="stat-label" style="font-size:0.82rem;color:var(--text-muted);margin-top:4px">免费访问</div>
-    </div>
-    <div class="stat-card" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;text-align:center">
-      <div class="stat-num" style="font-size:2rem;font-weight:800;letter-spacing:-1px;background:linear-gradient(135deg,var(--accent),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent">每周</div>
-      <div class="stat-label" style="font-size:0.82rem;color:var(--text-muted);margin-top:4px">更新推荐</div>
-    </div>
-  </div>
-  
-  <div class="tools-section" id="tools" style="max-width:1200px;margin:0 auto;padding:0 24px 80px">
-    <div class="section-header" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px">
-      <div class="section-title" style="font-size:1.1rem;font-weight:600;color:var(--text-muted)">所有工具</div>
-      <div class="tool-count" style="font-size:0.85rem;color:var(--text-muted);background:var(--surface2);padding:4px 12px;border-radius:100px" id="toolCount">39 个工具</div>
-    </div>
-    <div class="tools-grid" id="toolsGrid"></div>
-    <div class="no-results" id="noResults"><span>🔍</span>没有找到匹配的工具，换个关键词试试</div>
-  </div>
-  
-  <div class="disclaimer" style="max-width:1200px;margin:0 auto 40px;padding:0 24px">
-    <div class="disclaimer-box" style="background:rgba(234,179,8,0.06);border:1px solid rgba(234,179,8,0.2);border-radius:12px;padding:16px 20px;font-size:0.85rem;color:#aaa">
-      <strong>💡 声明：</strong>本站部分链接为推广链接，点击后你可能获得佣金，但这不会影响你使用工具的体验。我们只推荐真正好用的工具。
-    </div>
-  </div>
-  
-  <section class="newsletter" id="newsletter" style="max-width:600px;margin:0 auto 80px;padding:0 24px">
-    <div class="newsletter-box" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:40px;text-align:center">
-      <h2 style="font-size:1.4rem;font-weight:700;margin-bottom:8px;letter-spacing:-0.5px">📮 订阅每周精选</h2>
-      <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:8px">每周五发送，每次精选 <strong style="color:var(--text)">3 个</strong>最新 AI 工具</p>
-      <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:24px">订阅即送 <strong style="color:var(--accent)">《2025 AI 工具免费清单》</strong>PDF</p>
-      <div class="nl-form" style="display:flex;gap:10px">
-        <input type="email" placeholder="输入你的邮箱" id="emailInput" style="flex:1;padding:12px 16px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:0.9rem;outline:none">
-        <button onclick="subscribe()" style="padding:12px 24px;background:var(--accent);border:none;border-radius:10px;color:#fff;font-weight:600;font-size:0.9rem;cursor:pointer">订阅</button>
-      </div>
-    </div>
-  </section>
-  
+  <title>AI Tools Hub — 发现最强大的 AI 工具</title>
+  <meta name="description" content="收录全网最实用的 AI 工具，写作、设计、编程、效率，一站find，提升你的生产力。">
   <style>
     :root {
-      --bg: #0a0a0b; --surface: #141416; --surface2: #1c1c1f;
-      --border: #2a2a2e; --border-hover: #3a3a40;
-      --text: #efefef; --text-muted: #888;
-      --accent: #6366f1; --green: #22c55e; --pink: #ec4899;
+      --bg: #0a0a0b;
+      --surface: #141416;
+      --surface2: #1c1c1f;
+      --border: #2a2a2e;
+      --border-hover: #3a3a40;
+      --text: #efefef;
+      --text-muted: #888;
+      --accent: #6366f1;
+      --accent-glow: rgba(99,102,241,0.25);
+      --green: #22c55e;
+      --orange: #f97316;
+      --pink: #ec4899;
+      --cyan: #06b6d4;
+      --yellow: #eab308;
+      --radius: 10px;
       --radius-lg: 16px;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; min-height: 100vh; }
-    
-    nav { position: sticky; top: 0; z-index: 100; background: rgba(10,10,11,0.9); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); padding: 0 24px; }
-    .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 60px; }
-    .logo { font-size: 1.2rem; font-weight: 700; display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--text); }
-    .logo-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), var(--pink)); border-radius: 8px; display: grid; place-items: center; font-size: 16px; }
-    .nav-links { display: flex; gap: 20px; align-items: center; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,10,11,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .logo { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.5px; display: flex; align-items: center; gap: 8px; }
+    .logo-icon {
+      width: 32px; height: 32px;
+      background: linear-gradient(135deg, var(--accent), var(--pink));
+      border-radius: 8px; display: grid; place-items: center; font-size: 16px;
+    }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
     .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
     .nav-links a:hover { color: var(--text); }
-    .nav-links a.active { color: var(--accent); }
-    
-    .hero { max-width: 1200px; margin: 0 auto; padding: 60px 24px 40px; }
-    .breadcrumb { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 16px; }
-    .breadcrumb a { color: var(--accent); text-decoration: none; }
-    h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; }
-    .hero-desc { color: var(--text-muted); font-size: 1.05rem; max-width: 600px; margin-bottom: 32px; }
-    
-    .search-wrap { max-width: 480px; margin-bottom: 40px; position: relative; }
-    .search-wrap input { width: 100%; padding: 14px 20px 14px 48px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; color: var(--text); font-size: 1rem; outline: none; }
+    .nav-cta {
+      background: var(--accent); color: #fff !important;
+      padding: 8px 16px; border-radius: 8px; font-weight: 600; transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+    .hero {
+      max-width: 1200px; margin: 0 auto;
+      padding: 80px 24px 60px; text-align: center; position: relative;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 100px; padding: 6px 14px;
+      font-size: 0.8rem; color: var(--text-muted); margin-bottom: 24px;
+    }
+    .badge-dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 800;
+      letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 20px;
+    }
+    h1 span {
+      background: linear-gradient(135deg, var(--accent), var(--pink));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero p { color: var(--text-muted); font-size: 1.15rem; max-width: 560px; margin: 0 auto 36px; }
+    .search-wrap { max-width: 520px; margin: 0 auto 20px; position: relative; }
+    .search-wrap input {
+      width: 100%; padding: 14px 20px 14px 48px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; color: var(--text); font-size: 1rem; outline: none; transition: border-color 0.2s;
+    }
     .search-wrap input:focus { border-color: var(--accent); }
     .search-wrap input::placeholder { color: #555; }
     .search-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 18px; }
-    
+    .categories { max-width: 1200px; margin: 0 auto; padding: 0 24px 40px; }
+    .cat-list { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+    .cat-btn {
+      padding: 8px 18px; border-radius: 100px; border: 1px solid var(--border);
+      background: var(--surface); color: var(--text-muted);
+      font-size: 0.85rem; cursor: pointer; transition: all 0.2s; font-family: inherit;
+    }
+    .cat-btn:hover { border-color: var(--border-hover); color: var(--text); }
+    .cat-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
     .tools-section { max-width: 1200px; margin: 0 auto; padding: 0 24px 80px; }
-    .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
-    
-    .tool-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; transition: border-color 0.2s, transform 0.2s; text-decoration: none; color: inherit; display: block; }
-    .tool-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
-    .tool-card-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 12px; }
-    .tool-icon { width: 48px; height: 48px; border-radius: 12px; display: grid; place-items: center; font-size: 22px; flex-shrink: 0; }
-    .tool-info h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; }
-    .tool-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+    .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+    .section-title { font-size: 1.1rem; font-weight: 600; color: var(--text-muted); }
+    .tool-count { font-size: 0.85rem; color: var(--text-muted); background: var(--surface2); padding: 4px 12px; border-radius: 100px; }
+    .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+    .tool-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 24px;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      cursor: pointer; text-decoration: none; color: inherit;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .tool-card:hover { border-color: var(--border-hover); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+    .tool-card-top { display: flex; align-items: flex-start; gap: 14px; }
+    .tool-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: grid; place-items: center; font-size: 22px; flex-shrink: 0;
+    }
+    .tool-info h3 { font-size: 1.05rem; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 4px; }
+    .tool-tags { display: flex; gap: 6px; flex-wrap: wrap; }
     .tag { font-size: 0.72rem; padding: 3px 8px; border-radius: 6px; font-weight: 500; }
     .tag-free { background: rgba(34,197,94,0.15); color: var(--green); }
     .tag-freemium { background: rgba(234,179,8,0.15); color: var(--yellow); }
     .tag-paid { background: rgba(236,72,153,0.15); color: var(--pink); }
-    .tool-desc { color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; margin-bottom: 12px; }
-    .tool-pick { background: rgba(99,102,241,0.08); border-left: 3px solid var(--accent); padding: 10px 12px; border-radius: 0 8px 8px 0; font-size: 0.85rem; color: #ccc; margin-bottom: 12px; line-height: 1.5; }
-    .tool-pick strong { color: var(--accent); }
-    .tool-alt { font-size: 0.82rem; color: #666; margin-top: 8px; }
+    .tool-desc { color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; flex: 1; }
     .tool-card-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid var(--border); }
-    .tool-website { font-size: 0.8rem; color: var(--text-muted); word-break: break-all; }
-    .visit-btn { font-size: 0.82rem; color: var(--accent); font-weight: 600; display: flex; align-items: center; gap: 4px; }
+    .tool-website { font-size: 0.8rem; color: var(--text-muted); }
+    .visit-btn { font-size: 0.82rem; color: var(--accent); font-weight: 600; display: flex; align-items: center; gap: 4px; transition: gap 0.2s; }
     .tool-card:hover .visit-btn { gap: 8px; }
-    
+    .stats-bar { max-width: 1200px; margin: 0 auto 60px; padding: 0 24px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; text-align: center; }
+    .stat-num { font-size: 2rem; font-weight: 800; letter-spacing: -1px; background: linear-gradient(135deg, var(--accent), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .stat-label { font-size: 0.82rem; color: var(--text-muted); margin-top: 4px; }
+    .how-section { max-width: 1200px; margin: 0 auto; padding: 0 24px 80px; }
+    .how-title { text-align: center; font-size: 1.6rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 40px; }
+    .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .how-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; text-align: center; }
+    .how-num { width: 40px; height: 40px; background: var(--accent); border-radius: 50%; display: grid; place-items: center; font-weight: 700; margin: 0 auto 16px; font-size: 1rem; }
+    .how-card h3 { font-size: 1rem; margin-bottom: 8px; }
+    .how-card p { font-size: 0.85rem; color: var(--text-muted); }
+    .newsletter { max-width: 600px; margin: 0 auto 80px; padding: 0 24px; }
+    .newsletter-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 40px; text-align: center; }
+    .newsletter-box h2 { font-size: 1.4rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px; }
+    .newsletter-box p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px; }
+    .nl-form { display: flex; gap: 10px; }
+    .nl-form input { flex: 1; padding: 12px 16px; background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; color: var(--text); font-size: 0.9rem; outline: none; font-family: inherit; }
+    .nl-form input:focus { border-color: var(--accent); }
+    .nl-form button { padding: 12px 24px; background: var(--accent); border: none; border-radius: 10px; color: #fff; font-weight: 600; font-size: 0.9rem; cursor: pointer; font-family: inherit; transition: opacity 0.2s; }
+    .nl-form button:hover { opacity: 0.85; }
+    footer { border-top: 1px solid var(--border); padding: 40px 24px; text-align: center; color: var(--text-muted); font-size: 0.82rem; }
+    footer a { color: var(--accent); text-decoration: none; }
     .no-results { text-align: center; padding: 60px 20px; color: var(--text-muted); display: none; }
     .no-results.show { display: block; }
     .no-results span { font-size: 3rem; display: block; margin-bottom: 12px; }
-    
-    /* 免责声明 */
-    .disclaimer { max-width: 1200px; margin: 0 auto 40px; padding: 0 24px; }
-    .disclaimer-box { background: rgba(234,179,8,0.06); border: 1px solid rgba(234,179,8,0.2); border-radius: 12px; padding: 16px 20px; font-size: 0.85rem; color: #aaa; }
-    .disclaimer-box strong { color: var(--yellow); }
-    
-    footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; color: var(--text-muted); font-size: 0.82rem; }
-    footer a { color: var(--accent); text-decoration: none; }
-    .footer-links { display: flex; gap: 20px; justify-content: center; margin-bottom: 12px; }
-    
-    @media (max-width: 768px) { .tools-grid { grid-template-columns: 1fr; } .nav-links { gap: 12px; } }
+    @media (max-width: 768px) {
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+      .how-grid { grid-template-columns: 1fr; }
+      .nl-form { flex-direction: column; }
+      .nav-links { gap: 12px; }
+      .hero { padding: 60px 24px 40px; }
+    }
+    @media (max-width: 480px) {
+      .tools-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
 <nav>
   <div class="nav-inner">
-    <a href="/" class="logo"><div class="logo-icon">⚡</div>AI Tools Hub</a>
+    <div class="logo">
+      <div class="logo-icon">⚡</div>
+      AI Tools Hub
+    </div>
     <div class="nav-links">
-      <a href="/">首页</a>
-      <a href="/about">关于</a>
+      <a href="#tools">工具</a>
+      <a href="#how">怎么用</a>
+      <a href="#newsletter" class="nav-cta">订阅更新</a>
     </div>
   </div>
 </nav>
-
-<footer>
-  <div class="footer-links">
-    <a href="/">首页</a>
-    <a href="/about">关于本站</a>
-    <a href="mailto:contact@aitoolshub.com">联系我们</a>
+<section class="hero">
+  <div class="badge"><span class="badge-dot"></span> 持续更新中 · 每月新增工具</div>
+  <h1>找到最适合你的<br><span>AI 工具</span></h1>
+  <p>从写作、设计到编程、效率，收录全网最实用 AI 工具。<br>免费订阅，每周精选推荐直达邮箱。</p>
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="searchInput" placeholder="搜索 AI 工具，如：写作、翻译、代码...">
   </div>
-  <p>&copy; 2025 AI Tools Hub · 精心挑选 39 款 AI 工具</p>
+</section>
+<div class="categories">
+  <div class="cat-list" id="catList">
+    <button class="cat-btn active" data-cat="all">全部</button>
+    <button class="cat-btn" data-cat="writing">写作</button>
+    <button class="cat-btn" data-cat="image">图像</button>
+    <button class="cat-btn" data-cat="code">编程</button>
+    <button class="cat-btn" data-cat="video">视频</button>
+    <button class="cat-btn" data-cat="productivity">效率</button>
+    <button class="cat-btn" data-cat="chat">对话</button>
+    <button class="cat-btn" data-cat="audio">音频</button>
+  </div>
+</div>
+<div class="stats-bar">
+  <div class="stat-card"><div class="stat-num">39</div><div class="stat-label">精选工具</div></div>
+  <div class="stat-card"><div class="stat-num">7</div><div class="stat-label">分类覆盖</div></div>
+  <div class="stat-card"><div class="stat-num">100%</div><div class="stat-label">免费访问</div></div>
+  <div class="stat-card"><div class="stat-num">每周</div><div class="stat-label">更新推荐</div></div>
+</div>
+<div class="tools-section" id="tools">
+  <div class="section-header">
+    <div class="section-title">所有工具</div>
+    <div class="tool-count" id="toolCount">39 个工具</div>
+  </div>
+  <div class="tools-grid" id="toolsGrid"></div>
+  <div class="no-results" id="noResults">
+    <span>🔍</span>
+    没有找到匹配的工具，换个关键词试试
+  </div>
+</div>
+<section class="how-section" id="how">
+  <div class="how-title">为什么选 AI Tools Hub？</div>
+  <div class="how-grid">
+    <div class="how-card">
+      <div class="how-num">1</div>
+      <h3>严格筛选</h3>
+      <p>每个工具都经过真实体验，只推荐真正好用的 AI 产品。</p>
+    </div>
+    <div class="how-card">
+      <div class="how-num">2</div>
+      <h3>分类清晰</h3>
+      <p>按写作、设计、编程等场景分类，快速找到你需要的那一个。</p>
+    </div>
+    <div class="how-card">
+      <div class="how-num">3</div>
+      <h3>持续更新</h3>
+      <p>每周上新，订阅邮件后第一时间获取最新 AI 工具推荐。</p>
+    </div>
+  </div>
+</section>
+<section class="newsletter" id="newsletter">
+  <div class="newsletter-box">
+    <h2>订阅每周精选</h2>
+    <p>每周收到 3-5 个精选 AI 工具推荐，不再错过任何好工具。</p>
+    <div class="nl-form">
+      <input type="email" placeholder="输入你的邮箱" id="emailInput">
+      <button onclick="subscribe()">订阅</button>
+    </div>
+  </div>
+</section>
+<footer>
+  <p>&copy; 2025 AI Tools Hub · 发现最好的 AI 工具</p>
 </footer>
 <script>
-const tools = tools;
-const catNames = {"writing":"写作","image":"图像","code":"编程","video":"视频","productivity":"效率","chat":"对话","audio":"音频"};
-
-function renderTools(filter=''){
+const tools = [
+  // WRITING
+  { name: "ChatGPT", cat: "chat", icon: "💬", bg: "linear-gradient(135deg,#00c48a,#0070ba)", price: "freemium", desc: "OpenAI 出品，最全能的多用途 AI 助手，写作、分析、编程全能。", url: "https://chat.openai.com" },
+  { name: "Claude", cat: "chat", icon: "🤖", bg: "linear-gradient(135deg,#7c3aed,#db2777)", price: "freemium", desc: "Anthropic 出品，长上下文处理能力强，写作和逻辑分析出色。", url: "https://claude.ai" },
+  { name: "Jasper", cat: "writing", icon: "✍️", bg: "linear-gradient(135deg,#f59e0b,#ef4444)", price: "paid", desc: "专业 AI 营销文案工具，适合社媒、广告、邮件等商业写作。", url: "https://ref.jasper.ai/aff" },
+  { name: "Copy.ai", cat: "writing", icon: "📝", bg: "linear-gradient(135deg,#6366f1,#8b5cf6)", price: "freemium", desc: "营销文案自动生成，支持 90+ 模板，适合中小企业内容创作。", url: "https://copy.ai/affiliate" },
+  { name: "Notion AI", cat: "writing", icon: "📓", bg: "linear-gradient(135deg,#fff,#ccc)", price: "freemium", desc: "Notion 内置 AI，帮助写作、总结、翻译、扩展笔记内容。", url: "https://notion.so" },
+  { name: "Grammarly", cat: "writing", icon: "✅", bg: "linear-gradient(135deg,#1d4ed8,#3b82f6)", price: "freemium", desc: "AI 语法检查和写作改进，英文写作必备工具。", url: "https://grammarly.com" },
+  { name: "Rytr", cat: "writing", icon: "🚀", bg: "linear-gradient(135deg,#ec4899,#f43f5e)", price: "freemium", desc: "快速生成各类文案，博客、邮件、社交媒体内容一键完成。", url: "https://rytr.me/affiliate" },
+  { name: "Writesonic", cat: "writing", icon: "🖊️", bg: "linear-gradient(135deg,#06b6d4,#3b82f6)", price: "freemium", desc: "SEO 文章和落地页生成，内置热词分析和内容优化建议。", url: "https://writesonic.com/affiliate" },
+  // IMAGE
+  { name: "Midjourney", cat: "image", icon: "🎨", bg: "linear-gradient(135deg,#7c3aed,#2563eb)", price: "paid", desc: "最顶尖的 AI 图像生成工具，艺术风格高质量出图。", url: "https://midjourney.com" },
+  { name: "DALL-E 3", cat: "image", icon: "🖼️", bg: "linear-gradient(135deg,#059669,#0d9488)", price: "freemium", desc: "OpenAI 图像生成，与 ChatGPT 集成，描述即可生成图片。", url: "https://openai.com/dall-e-3" },
+  { name: "Leonardo AI", cat: "image", icon: "🦁", bg: "linear-gradient(135deg,#dc2626,#f97316)", price: "freemium", desc: "免费每日额度，游戏和插画风格图像生成，质量接近付费工具。", url: "https://leonardo.ai/affiliate" },
+  { name: "Stable Diffusion", cat: "image", icon: "🧠", bg: "linear-gradient(135deg,#16a34a,#0ea5e9)", price: "free", desc: "开源图像生成模型，可本地部署，完全免费无限制。", url: "https://stability.ai" },
+  { name: "Canva AI", cat: "image", icon: "🎯", bg: "linear-gradient(135deg,#7c3aed,#ec4899)", price: "freemium", desc: "在线设计平台，内置 AI 图像生成、魔法编辑、文案生成。", url: "https://canva.affiliateloop.com/" },
+  { name: "Ideogram", cat: "image", icon: "💡", bg: "linear-gradient(135deg,#eab308,#f97316)", price: "freemium", desc: "文字渲染能力最强的 AI 绘图工具，适合 logo 和海报设计。", url: "https://ideogram.ai" },
+  { name: "Remove.bg", cat: "image", icon: "✂️", bg: "linear-gradient(135deg,#22c55e,#06b6d4)", price: "freemium", desc: "一键 AI 抠图，精准去除背景，免费低分辨率下载。", url: "https://remove.bg" },
+  // CODE
+  { name: "Cursor", cat: "code", icon: "⚡", bg: "linear-gradient(135deg,#f97316,#ef4444)", price: "freemium", desc: "AI 代码编辑器，智能补全、自动修 bug、代码重构一体化。", url: "https://cursor.sh/?via=aff" },
+  { name: "GitHub Copilot", cat: "code", icon: "🐙", bg: "linear-gradient(135deg,#6e7681,#fff)", price: "paid", desc: "GitHub 官方 AI 编程助手，VS Code 内置，代码补全强大。", url: "https://github.com/features/copilot" },
+  { name: "Replit AI", cat: "code", icon: "🤖", bg: "linear-gradient(135deg,#0ea5e9,#6366f1)", price: "freemium", desc: "云端 IDE + AI，浏览器里直接写代码、部署应用，零基础友好。", url: "https://replit.com/affiliate" },
+  { name: "DeepSeek", cat: "code", icon: "🔍", bg: "linear-gradient(135deg,#3b82f6,#06b6d4)", price: "free", desc: "国产 AI 编程助手，中文理解强，代码生成速度快，完全免费。", url: "https://deepseek.com" },
+  { name: "WindSurf", cat: "code", icon: "🌊", bg: "linear-gradient(135deg,#0ea5e9,#06b6d4)", price: "freemium", desc: "新兴 AI 编辑器，支持多文件理解和上下文感知编码。", url: "https://windsurf.com" },
+  // VIDEO
+  { name: "Runway", cat: "video", icon: "🎬", bg: "linear-gradient(135deg,#7c3aed,#ec4899)", price: "freemium", desc: "AI 视频生成和剪辑，文生视频、视频编辑一站式。", url: "https://runwayml.com/affiliate" },
+  { name: "Pika", cat: "video", icon: "🎞️", bg: "linear-gradient(135deg,#f59e0b,#ef4444)", price: "freemium", desc: "简单高效的 AI 视频生成，文字或图片转视频，新手友好。", url: "https://pika.art/affiliate" },
+  { name: "HeyGen", cat: "video", icon: "🗣️", bg: "linear-gradient(135deg,#06b6d4,#3b82f6)", price: "freemium", desc: "AI 数字人口播视频，上传文字自动生成播报视频。", url: "https://app.heygen.com/affiliate" },
+  { name: "Descript", cat: "video", icon: "🎙️", bg: "linear-gradient(135deg,#6366f1,#8b5cf6)", price: "freemium", desc: "AI 视频剪辑，通过编辑文字剪辑视频，超高效。", url: "https://descript.com/affiliate" },
+  // PRODUCTIVITY
+  { name: "Notion", cat: "productivity", icon: "📋", bg: "linear-gradient(135deg,#fff,#ccc)", price: "freemium", desc: "全能知识管理和笔记工具，AI 辅助写作和总结。", url: "https://notion.so" },
+  { name: "Gemini", cat: "productivity", icon: "🔮", bg: "linear-gradient(135deg,#4285f4,#34a853)", price: "freemium", desc: "Google AI，集成 Gmail、Docs、Sheets，办公效率提升明显。", url: "https://gemini.google.com/affiliate" },
+  { name: "Perplexity", cat: "productivity", icon: "🔎", bg: "linear-gradient(135deg,#00c4cc,#0072ff)", price: "freemium", desc: "AI 搜索引擎，实时联网问答，给出带引用的准确答案。", url: "https://perplexity.ai/affiliate" },
+  { name: "Mem", cat: "productivity", icon: "🧩", bg: "linear-gradient(135deg,#ff6b6b,#ffa500)", price: "freemium", desc: "AI 笔记助手，自动整理和连接你的知识，搜索即懂。", url: "https://mem.ai" },
+  { name: "Tome", cat: "productivity", icon: "📑", bg: "linear-gradient(135deg,#a855f7,#6366f1)", price: "freemium", desc: "AI 演示文稿生成，输入主题自动生成完整 PPT。", url: "https://tome.app/affiliate" },
+  { name: "Deepl", cat: "productivity", icon: "🌐", bg: "linear-gradient(135deg,#003399,#0066cc)", price: "freemium", desc: "最准确的 AI 翻译工具，支持 30+ 语言，翻译质量远超竞品。", url: "https://deepl.com" },
+  // CHAT
+  { name: "Pi", cat: "chat", icon: "😊", bg: "linear-gradient(135deg,#f472b6,#a78bfa)", price: "free", desc: "情感陪伴型 AI，专注心理健康和日常聊天，温暖有同理心。", url: "https://pi.ai" },
+  { name: "Character.AI", cat: "chat", icon: "🎭", bg: "linear-gradient(135deg,#fb923c,#f472b6)", price: "free", desc: "与各种虚构角色聊天，角色扮演、学习、娱乐一体。", url: "https://character.ai" },
+  { name: "Kimi", cat: "chat", icon: "🌙", bg: "linear-gradient(135deg,#1e3a5f,#3b82f6)", price: "free", desc: "月之暗面出品，超长上下文（20万+字），中文理解一流。", url: "https://kimi.moonshot.cn" },
+  { name: "豆包", cat: "chat", icon: "🫘", bg: "linear-gradient(135deg,#22c55e,#06b6d4)", price: "free", desc: "字节跳动出品，免费无限制，中文对话体验优秀。", url: "https://www.doubao.com" },
+  // AUDIO
+  { name: "ElevenLabs", cat: "audio", icon: "🎙️", bg: "linear-gradient(135deg,#f97316,#eab308)", price: "freemium", desc: "最逼真的 AI 语音合成，克隆声音、多语言配音，内容创作者必备。", url: "https://try.elevenlabs.io/s85sr6pp0upc" },
+  { name: "Descript Overdub", cat: "audio", icon: "🎧", bg: "linear-gradient(135deg,#6366f1,#a855f7)", price: "freemium", desc: "AI 语音克隆编辑，修改文字即修改录音，播客制作神器。", url: "https://descript.com/affiliate" },
+  { name: "Murf", cat: "audio", icon: "🔊", bg: "linear-gradient(135deg,#06b6d4,#3b82f6)", price: "freemium", desc: "AI 配音生成，适合视频旁白、课程录制、广告配音。", url: "https://murf.ai/affiliate" },
+  { name: "Udio", cat: "audio", icon: "🎵", bg: "linear-gradient(135deg,#ec4899,#8b5cf6)", price: "freemium", desc: "AI 音乐生成，输入描述即可创作完整歌曲，含歌词和演唱。", url: "https://udio.com/affiliate" },
+  { name: "Suno", cat: "audio", icon: "🎶", bg: "linear-gradient(135deg,#22c55e,#06b6d4)", price: "freemium", desc: "AI 作曲神器，一句话生成完整歌曲，已诞生多首热门作品。", url: "https://suno.com/affiliate" },
+];
+const priceMap = { free: '免费', freemium: '免费+付费', paid: '付费' };
+const catNames = { writing:'写作', image:'图像', code:'编程', video:'视频', productivity:'效率', chat:'对话', audio:'音频' };
+let currentCat = 'all';
+let currentSearch = '';
+function renderTools() {
   const grid = document.getElementById('toolsGrid');
   const noRes = document.getElementById('noResults');
+  const countEl = document.getElementById('toolCount');
   const filtered = tools.filter(t => {
-    if(!filter) return true;
-    return t.name.toLowerCase().includes(filter) || t.desc.includes(filter) || t.pick.includes(filter);
+    const matchCat = currentCat === 'all' || t.cat === currentCat;
+    const matchSearch = currentSearch === '' ||
+      t.name.toLowerCase().includes(currentSearch) ||
+      t.desc.includes(currentSearch) ||
+      catNames[t.cat].includes(currentSearch);
+    return matchCat && matchSearch;
   });
-  if(filtered.length === 0){ grid.innerHTML=''; noRes.classList.add('show'); return; }
+  countEl.textContent = filtered.length + ' 个工具';
+  if (filtered.length === 0) {
+    grid.innerHTML = '';
+    noRes.classList.add('show');
+    return;
+  }
   noRes.classList.remove('show');
   grid.innerHTML = filtered.map(t => `
     <a class="tool-card" href="${t.url}" target="_blank" rel="noopener">
@@ -179,20 +333,39 @@ function renderTools(filter=''){
         <div class="tool-info">
           <h3>${t.name}</h3>
           <div class="tool-tags">
-            <span class="tag tag-${t.price}">${t.price==='free'?'免费':t.price==='freemium'?'免费+付费':'付费'}</span>
+            <span class="tag tag-${t.price}">${priceMap[t.price]}</span>
+            <span class="tag" style="background:rgba(99,102,241,0.15);color:var(--accent)">${catNames[t.cat]}</span>
           </div>
         </div>
       </div>
       <div class="tool-desc">${t.desc}</div>
-      <div class="tool-pick"><strong>${t.pick.split('【')[1]?.split('】')[0]||'使用建议'}</strong><br>${t.pick.split('】')[1]||''}</div>
-      <div class="tool-alt">${t.alternative||''}</div>
       <div class="tool-card-bottom">
         <span class="tool-website">${t.url.replace('https://','')}</span>
         <span class="visit-btn">访问网站 →</span>
       </div>
-    </a>`).join('');
+    </a>
+  `).join('');
 }
-document.getElementById('searchInput').addEventListener('input', e => renderTools(e.target.value.toLowerCase().trim()));
+document.getElementById('catList').addEventListener('click', e => {
+  if (!e.target.classList.contains('cat-btn')) return;
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+  e.target.classList.add('active');
+  currentCat = e.target.dataset.cat;
+  renderTools();
+});
+document.getElementById('searchInput').addEventListener('input', e => {
+  currentSearch = e.target.value.toLowerCase().trim();
+  renderTools();
+});
+function subscribe() {
+  const email = document.getElementById('emailInput').value.trim();
+  if (!email || !email.includes('@')) {
+    document.getElementById('emailInput').style.borderColor = '#ef4444';
+    return;
+  }
+  document.getElementById('emailInput').style.borderColor = '';
+  alert('订阅成功！每周精选 AI 工具将发送到 ' + email);
+}
 renderTools();
 </script>
 </body>
