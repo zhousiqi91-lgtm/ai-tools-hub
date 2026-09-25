@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Tools Hub â åç°æå¼ºå¤§ç AI å·¥å·</title>
+  <meta name="description" content="æ¶å½å¨ç½æå®ç¨ç AI å·¥å·ï¼åä½ãè®¾è®¡ãç¼ç¨ãæçï¼ä¸ç«findï¼æåä½ ççäº§åã">
+  <style>
+    :root {
+      --bg: #0a0a0b;
+      --surface: #141416;
+      --surface2: #1c1c1f;
+      --border: #2a2a2e;
+      --border-hover: #3a3a40;
+      --text: #efefef;
+      --text-muted: #888;
+      --accent: #6366f1;
+      --accent-glow: rgba(99,102,241,0.25);
+      --green: #22c55e;
+      --orange: #f97316;
+      --pink: #ec4899;
+      --cyan: #06b6d4;
+      --yellow: #eab308;
+      --radius: 10px;
+      --radius-lg: 16px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,10,11,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .logo { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.5px; display: flex; align-items: center; gap: 8px; }
+    .logo-icon {
+      width: 32px; height: 32px;
+      background: linear-gradient(135deg, var(--accent), var(--pink));
+      border-radius: 8px; display: grid; place-items: center; font-size: 16px;
+    }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--accent); color: #fff !important;
+      padding: 8px 16px; border-radius: 8px; font-weight: 600; transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+
+    .hero {
+      max-width: 1200px; margin: 0 auto;
+      padding: 80px 24px 60px; text-align: center; position: relative;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 100px; padding: 6px 14px;
+      font-size: 0.8rem; color: var(--text-muted); margin-bottom: 24px;
+    }
+    .badge-dot { width: 6px; height: 6px; background: var(--green); border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 800;
+      letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 20px;
+    }
+    h1 span {
+      background: linear-gradient(135deg, var(--accent), var(--pink));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero p { color: var(--text-muted); font-size: 1.15rem; max-width: 560px; margin: 0 auto 36px; }
+    .search-wrap { max-width: 520px; margin: 0 auto 20px; position: relative; }
+    .search-wrap input {
+      width: 100%; padding: 14px 20px 14px 48px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; color: var(--text); font-size: 1rem; outline: none; transition: border-color 0.2s;
+    }
+    .search-wrap input:focus { border-color: var(--accent); }
+    .search-wrap input::placeholder { color: #555; }
+    .search-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 18px; }
+
+    .categories { max-width: 1200px; margin: 0 auto; padding: 0 24px 40px; }
+    .cat-list { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+    .cat-btn {
+      padding: 8px 18px; border-radius: 100px; border: 1px solid var(--border);
+      background: var(--surface); color: var(--text-muted);
+      font-size: 0.85rem; cursor: pointer; transition: all 0.2s; font-family: inherit;
+    }
+    .cat-btn:hover { border-color: var(--border-hover); color: var(--text); }
+    .cat-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+    .tools-section { max-width: 1200px; margin: 0 auto; padding: 0 24px 80px; }
+    .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+    .section-title { font-size: 1.1rem; font-weight: 600; color: var(--text-muted); }
+    .tool-count { font-size: 0.85rem; color: var(--text-muted); background: var(--surface2); padding: 4px 12px; border-radius: 100px; }
+    .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+    .tool-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 24px;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      cursor: pointer; text-decoration: none; color: inherit;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .tool-card:hover { border-color: var(--border-hover); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+    .tool-card-top { display: flex; align-items: flex-start; gap: 14px; }
+    .tool-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: grid; place-items: center; font-size: 22px; flex-shrink: 0;
+    }
+    .tool-info h3 { font-size: 1.05rem; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 4px; }
+    .tool-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .tag { font-size: 0.72rem; padding: 3px 8px; border-radius: 6px; font-weight: 500; }
+    .tag-free { background: rgba(34,197,94,0.15); color: var(--green); }
+    .tag-freemium { background: rgba(234,179,8,0.15); color: var(--yellow); }
+    .tag-paid { background: rgba(236,72,153,0.15); color: var(--pink); }
+    .tool-desc { color: var(--text-muted); font-size: 0.88rem; line-height: 1.5; flex: 1; }
+    .tool-card-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid var(--border); }
+    .tool-website { font-size: 0.8rem; color: var(--text-muted); }
+    .visit-btn { font-size: 0.82rem; color: var(--accent); font-weight: 600; display: flex; align-items: center; gap: 4px; transition: gap 0.2s; }
+    .tool-card:hover .visit-btn { gap: 8px; }
+
+    .stats-bar { max-width: 1200px; margin: 0 auto 60px; padding: 0 24px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; text-align: center; }
+    .stat-num { font-size: 2rem; font-weight: 800; letter-spacing: -1px; background: linear-gradient(135deg, var(--accent), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .stat-label { font-size: 0.82rem; color: var(--text-muted); margin-top: 4px; }
+
+    .how-section { max-width: 1200px; margin: 0 auto; padding: 0 24px 80px; }
+    .how-title { text-align: center; font-size: 1.6rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 40px; }
+    .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .how-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; text-align: center; }
+    .how-num { width: 40px; height: 40px; background: var(--accent); border-radius: 50%; display: grid; place-items: center; font-weight: 700; margin: 0 auto 16px; font-size: 1rem; }
+    .how-card h3 { font-size: 1rem; margin-bottom: 8px; }
+    .how-card p { font-size: 0.85rem; color: var(--text-muted); }
+
+    .newsletter { max-width: 600px; margin: 0 auto 80px; padding: 0 24px; }
+    .newsletter-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 40px; text-align: center; }
+    .newsletter-box h2 { font-size: 1.4rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px; }
+    .newsletter-box p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px; }
+    .nl-form { display: flex; gap: 10px; }
+    .nl-form input { flex: 1; padding: 12px 16px; background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; color: var(--text); font-size: 0.9rem; outline: none; font-family: inherit; }
+    .nl-form input:focus { border-color: var(--accent); }
+    .nl-form button { padding: 12px 24px; background: var(--accent); border: none; border-radius: 10px; color: #fff; font-weight: 600; font-size: 0.9rem; cursor: pointer; font-family: inherit; transition: opacity 0.2s; }
+    .nl-form button:hover { opacity: 0.85; }
+
+    footer { border-top: 1px solid var(--border); padding: 40px 24px; text-align: center; color: var(--text-muted); font-size: 0.82rem; }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    .no-results { text-align: center; padding: 60px 20px; color: var(--text-muted); display: none; }
+    .no-results.show { display: block; }
+    .no-results span { font-size: 3rem; display: block; margin-bottom: 12px; }
+
+    @media (max-width: 768px) {
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+      .how-grid { grid-template-columns: 1fr; }
+      .nl-form { flex-direction: column; }
+      .nav-links { gap: 12px; }
+      .hero { padding: 60px 24px 40px; }
+    }
+    @media (max-width: 480px) {
+      .tools-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+<meta name="robots" content="index, follow">
+<meta name="keywords" content="AIå·¥å·, AI tools, åä½å·¥å·, ç¼ç¨å©æ, å¾åçæ, è§é¢çæ, æçå·¥å·, ChatGPT, Claude">
+<meta property="og:title" content="AI Tools Hub â 2025æä½³AIå·¥å·åé">
+<meta property="og:description" content="ç²¾é50+ AIå·¥å·ï¼æ¶µçåä½ãè®¾è®¡ãç¼ç¨ãè§é¢ãé³é¢ç­åºæ¯ãæ¯å¨æ´æ°æ¨èã">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image"></head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">
+      <div class="logo-icon">â¡</div>
+      AI Tools Hub
+    </div>
+    <div class="nav-links">
+      <a href="#tools">å·¥å·</a>
+      <a href="#how">æä¹ç¨</a>
+      <a href="#newsletter" class="nav-cta">è®¢éæ´æ°</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="badge"><span class="badge-dot"></span> æç»­æ´æ°ä¸­ Â· æ¯ææ°å¢å·¥å·</div>
+  <h1>æ¾å°æéåä½ ç<br><span>AI å·¥å·</span></h1>
+  <p>ä»åä½ãè®¾è®¡å°ç¼ç¨ãæçï¼æ¶å½å¨ç½æå®ç¨ AI å·¥å·ã<br>åè´¹è®¢éï¼æ¯å¨ç²¾éæ¨èç´è¾¾é®ç®±ã</p>
+  <div class="search-wrap">
+    <span class="search-icon">ð</span>
+    <input type="text" id="searchInput" placeholder="æç´¢ AI å·¥å·ï¼å¦ï¼åä½ãç¿»è¯ãä»£ç ...">
+  </div>
+</section>
+
+<div class="categories">
+  <div class="cat-list" id="catList">
+    <button class="cat-btn active" data-cat="all">å¨é¨</button>
+    <button class="cat-btn" data-cat="writing">åä½</button>
+    <button class="cat-btn" data-cat="image">å¾å</button>
+    <button class="cat-btn" data-cat="code">ç¼ç¨</button>
+    <button class="cat-btn" data-cat="video">è§é¢</button>
+    <button class="cat-btn" data-cat="productivity">æç</button>
+    <button class="cat-btn" data-cat="chat">å¯¹è¯</button>
+    <button class="cat-btn" data-cat="audio">é³é¢</button>
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat-card"><div class="stat-num">50+</div><div class="stat-label">ç²¾éå·¥å·</div></div>
+  <div class="stat-card"><div class="stat-num">8</div><div class="stat-label">åç±»è¦ç</div></div>
+  <div class="stat-card"><div class="stat-num">100%</div><div class="stat-label">åè´¹è®¿é®</div></div>
+  <div class="stat-card"><div class="stat-num">æ¯å¨</div><div class="stat-label">æ´æ°æ¨è</div></div>
+</div>
+
+<div class="tools-section" id="tools">
+  <div class="section-header">
+    <div class="section-title">ææå·¥å·</div>
+    <div class="tool-count" id="toolCount">50 ä¸ªå·¥å·</div>
+  </div>
+  <div class="tools-grid" id="toolsGrid"></div>
+  <div class="no-results" id="noResults">
+    <span>ð</span>
+    æ²¡ææ¾å°å¹éçå·¥å·ï¼æ¢ä¸ªå³é®è¯è¯è¯
+  </div>
+</div>
+
+<section class="how-section" id="how">
+  <div class="how-title">ä¸ºä»ä¹é AI Tools Hubï¼</div>
+  <div class="how-grid">
+    <div class="how-card">
+      <div class="how-num">1</div>
+      <h3>ä¸¥æ ¼ç­é</h3>
+      <p>æ¯ä¸ªå·¥å·é½ç»è¿çå®ä½éªï¼åªæ¨èçæ­£å¥½ç¨ç AI äº§åã</p>
+    </div>
+    <div class="how-card">
+      <div class="how-num">2</div>
+      <h3>åç±»æ¸æ°</h3>
+      <p>æåä½ãè®¾è®¡ãç¼ç¨ç­åºæ¯åç±»ï¼å¿«éæ¾å°ä½ éè¦çé£ä¸ä¸ªã</p>
+    </div>
+    <div class="how-card">
+      <div class="how-num">3</div>
+      <h3>æç»­æ´æ°</h3>
+      <p>æ¯å¨ä¸æ°ï¼è®¢éé®ä»¶åç¬¬ä¸æ¶é´è·åææ° AI å·¥å·æ¨èã</p>
+    </div>
+  </div>
+</section>
+
+<section class="newsletter" id="newsletter">
+  <div class="newsletter-box">
+    <h2>è®¢éæ¯å¨ç²¾é</h2>
+    <p>æ¯å¨æ¶å° 3-5 ä¸ªç²¾é AI å·¥å·æ¨èï¼ä¸åéè¿ä»»ä½å¥½å·¥å·ã</p>
+    <div class="nl-form">
+      <input type="email" placeholder="è¾å¥ä½ çé®ç®±" id="emailInput">
+      <button onclick="subscribe()">è®¢é</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 AI Tools Hub Â· åç°æå¥½ç AI å·¥å·</p>
+</footer>
+
+<script>
+const tools = [
+  // WRITING
+  { name: "ChatGPT", cat: "chat", icon: "ð¬", bg: "linear-gradient(135deg,#00c48a,#0070ba)", price: "freemium", desc: "OpenAI åºåï¼æå¨è½çå¤ç¨é AI å©æï¼åä½ãåæãç¼ç¨å¨è½ã", url: "https://chat.openai.com" },
+  { name: "Claude", cat: "chat", icon: "ð¤", bg: "linear-gradient(135deg,#7c3aed,#db2777)", price: "freemium", desc: "Anthropic åºåï¼é¿ä¸ä¸æå¤çè½åå¼ºï¼åä½åé»è¾åæåºè²ã", url: "https://claude.ai" },
+  { name: "Jasper", cat: "writing", icon: "âï¸", bg: "linear-gradient(135deg,#f59e0b,#ef4444)", price: "paid", desc: "ä¸ä¸ AI è¥éææ¡å·¥å·ï¼éåç¤¾åªãå¹¿åãé®ä»¶ç­åä¸åä½ã", url: "https://jasper.ai" },
+  { name: "Copy.ai", cat: "writing", icon: "ð", bg: "linear-gradient(135deg,#6366f1,#8b5cf6)", price: "freemium", desc: "è¥éææ¡èªå¨çæï¼æ¯æ 90+ æ¨¡æ¿ï¼éåä¸­å°ä¼ä¸åå®¹åä½ã", url: "https://copy.ai" },
+  { name: "Notion AI", cat: "writing", icon: "ð", bg: "linear-gradient(135deg,#fff,#ccc)", price: "freemium", desc: "Notion åç½® AIï¼å¸®å©åä½ãæ»ç»ãç¿»è¯ãæ©å±ç¬è®°åå®¹ã", url: "https://notion.so" },
+  { name: "Grammarly", cat: "writing", icon: "â", bg: "linear-gradient(135deg,#1d4ed8,#3b82f6)", price: "freemium", desc: "AI è¯­æ³æ£æ¥ååä½æ¹è¿ï¼è±æåä½å¿å¤å·¥å·ã", url: "https://grammarly.com" },
+  { name: "Rytr", cat: "writing", icon: "ð", bg: "linear-gradient(135deg,#ec4899,#f43f5e)", price: "freemium", desc: "å¿«éçæåç±»ææ¡ï¼åå®¢ãé®ä»¶ãç¤¾äº¤åªä½åå®¹ä¸é®å®æã", url: "https://rytr.me" },
+  { name: "Writesonic", cat: "writing", icon: "ðï¸", bg: "linear-gradient(135deg,#06b6d4,#3b82f6)", price: "freemium", desc: "SEO æç« åè½å°é¡µçæï¼åç½®ç­è¯åæååå®¹ä¼åå»ºè®®ã", url: "https://writesonic.com" },
+
+  // IMAGE
+  { name: "Midjourney", cat: "image", icon: "ð¨", bg: "linear-gradient(135deg,#7c3aed,#2563eb)", price: "paid", desc: "æé¡¶å°ç AI å¾åçæå·¥å·ï¼èºæ¯é£æ ¼é«è´¨éåºå¾ã", url: "https://midjourney.com" },
+  { name: "DALL-E 3", cat: "image", icon: "ð¼ï¸", bg: "linear-gradient(135deg,#059669,#0d9488)", price: "freemium", desc: "OpenAI å¾åçæï¼ä¸ ChatGPT éæï¼æè¿°å³å¯çæå¾çã", url: "https://openai.com/dall-e-3" },
+  { name: "Leonardo AI", cat: "image", icon: "ð¦", bg: "linear-gradient(135deg,#dc2626,#f97316)", price: "freemium", desc: "åè´¹æ¯æ¥é¢åº¦ï¼æ¸¸æåæç»é£æ ¼å¾åçæï¼è´¨éæ¥è¿ä»è´¹å·¥å·ã", url: "https://leonardo.ai" },
+  { name: "Stable Diffusion", cat: "image", icon: "ð§ ", bg: "linear-gradient(135deg,#16a34a,#0ea5e9)", price: "free", desc: "å¼æºå¾åçææ¨¡åï¼å¯æ¬å°é¨ç½²ï¼å®å¨åè´¹æ éå¶ã", url: "https://stability.ai" },
+  { name: "Canva AI", cat: "image", icon: "ð¯", bg: "linear-gradient(135deg,#7c3aed,#ec4899)", price: "freemium", desc: "å¨çº¿è®¾è®¡å¹³å°ï¼åç½® AI å¾åçæãé­æ³ç¼è¾ãææ¡çæã", url: "https://canva.com" },
+  { name: "Ideogram", cat: "image", icon: "ð¡", bg: "linear-gradient(135deg,#eab308,#f97316)", price: "freemium", desc: "æå­æ¸²æè½åæå¼ºç AI ç»å¾å·¥å·ï¼éå logo åæµ·æ¥è®¾è®¡ã", url: "https://ideogram.ai" },
+  { name: "Remove.bg", cat: "image", icon: "âï¸", bg: "linear-gradient(135deg,#22c55e,#06b6d4)", price: "freemium", desc: "ä¸é® AI æ å¾ï¼ç²¾åå»é¤èæ¯ï¼åè´¹ä½åè¾¨çä¸è½½ã", url: "https://remove.bg" },
+
+  // CODE
+  { name: "Cursor", cat: "code", icon: "â¡", bg: "linear-gradient(135deg,#f97316,#ef4444)", price: "freemium", desc: "AI ä»£ç ç¼è¾å¨ï¼æºè½è¡¥å¨ãèªå¨ä¿® bugãä»£ç éæä¸ä½åã", url: "https://cursor.sh" },
+  { name: "GitHub Copilot", cat: "code", icon: "ð", bg: "linear-gradient(135deg,#6e7681,#fff)", price: "paid", desc: "GitHub å®æ¹ AI ç¼ç¨å©æï¼VS Code åç½®ï¼ä»£ç è¡¥å¨å¼ºå¤§ã", url: "https://github.com/features/copilot" },
+  { name: "Replit AI", cat: "code", icon: "ð¤", bg: "linear-gradient(135deg,#0ea5e9,#6366f1)", price: "freemium", desc: "äºç«¯ IDE + AIï¼æµè§å¨éç´æ¥åä»£ç ãé¨ç½²åºç¨ï¼é¶åºç¡åå¥½ã", url: "https://replit.com" },
+  { name: "DeepSeek", cat: "code", icon: "ð", bg: "linear-gradient(135deg,#3b82f6,#06b6d4)", price: "free", desc: "å½äº§ AI ç¼ç¨å©æï¼ä¸­æçè§£å¼ºï¼ä»£ç çæéåº¦å¿«ï¼å®å¨åè´¹ã", url: "https://deepseek.com" },
+  { name: "WindSurf", cat: "code", icon: "ð", bg: "linear-gradient(135deg,#0ea5e9,#06b6d4)", price: "freemium", desc: "æ°å´ AI ç¼è¾å¨ï¼æ¯æå¤æä»¶çè§£åä¸ä¸ææç¥ç¼ç ã", url: "https://windsurf.com" },
+
+  // VIDEO
+  { name: "Runway", cat: "video", icon: "ð¬", bg: "linear-gradient(135deg,#7c3aed,#ec4899)", price: "freemium", desc: "AI è§é¢çæååªè¾ï¼æçè§é¢ãè§é¢ç¼è¾ä¸ç«å¼ã", url: "https://runwayml.com" },
+  { name: "Pika", cat: "video", icon: "ðï¸", bg: "linear-gradient(135deg,#f59e0b,#ef4444)", price: "freemium", desc: "ç®åé«æç AI è§é¢çæï¼æå­æå¾çè½¬è§é¢ï¼æ°æåå¥½ã", url: "https://pika.art" },
+  { name: "HeyGen", cat: "video", icon: "ð£ï¸", bg: "linear-gradient(135deg,#06b6d4,#3b82f6)", price: "freemium", desc: "AI æ°å­äººå£æ­è§é¢ï¼ä¸ä¼ æå­èªå¨çææ­æ¥è§é¢ã", url: "https://heygen.com" },
+  { name: "Descript", cat: "video", icon: "ðï¸", bg: "linear-gradient(135deg,#6366f1,#8b5cf6)", price: "freemium", desc: "AI è§é¢åªè¾ï¼éè¿ç¼è¾æå­åªè¾è§é¢ï¼è¶é«æã", url: "https://descript.com" },
+
+  // PRODUCTIVITY
+  { name: "Notion", cat: "productivity", icon: "ð", bg: "linear-gradient(135deg,#fff,#ccc)", price: "freemium", desc: "å¨è½ç¥è¯ç®¡çåç¬è®°å·¥å·ï¼AI è¾å©åä½åæ»ç»ã", url: "https://notion.so" },
+  { name: "Gemini", cat: "productivity", icon: "ð®", bg: "linear-gradient(135deg,#4285f4,#34a853)", price: "freemium", desc: "Google AIï¼éæ GmailãDocsãSheetsï¼åå¬æçæåææ¾ã", url: "https://gemini.google.com" },
+  { name: "Perplexity", cat: "productivity", icon: "ð", bg: "linear-gradient(135deg,#00c4cc,#0072ff)", price: "freemium", desc: "AI æç´¢å¼æï¼å®æ¶èç½é®ç­ï¼ç»åºå¸¦å¼ç¨çåç¡®ç­æ¡ã", url: "https://perplexity.ai" },
+  { name: "Mem", cat: "productivity", icon: "ð§©", bg: "linear-gradient(135deg,#ff6b6b,#ffa500)", price: "freemium", desc: "AI ç¬è®°å©æï¼èªå¨æ´çåè¿æ¥ä½ çç¥è¯ï¼æç´¢å³æã", url: "https://mem.ai" },
+  { name: "Tome", cat: "productivity", icon: "ð", bg: "linear-gradient(135deg,#a855f7,#6366f1)", price: "freemium", desc: "AI æ¼ç¤ºæç¨¿çæï¼è¾å¥ä¸»é¢èªå¨çæå®æ´ PPTã", url: "https://tome.app" },
+  { name: "Deepl", cat: "productivity", icon: "ð", bg: "linear-gradient(135deg,#003399,#0066cc)", price: "freemium", desc: "æåç¡®ç AI ç¿»è¯å·¥å·ï¼æ¯æ 30+ è¯­è¨ï¼ç¿»è¯è´¨éè¿è¶ç«åã", url: "https://deepl.com" },
+
+  // CHAT
+  { name: "Pi", cat: "chat", icon: "ð", bg: "linear-gradient(135deg,#f472b6,#a78bfa)", price: "free", desc: "ææéªä¼´å AIï¼ä¸æ³¨å¿çå¥åº·åæ¥å¸¸èå¤©ï¼æ¸©ææåçå¿ã", url: "https://pi.ai" },
+  { name: "Character.AI", cat: "chat", icon: "ð­", bg: "linear-gradient(135deg,#fb923c,#f472b6)", price: "free", desc: "ä¸åç§èæè§è²èå¤©ï¼è§è²æ®æ¼ãå­¦ä¹ ãå¨±ä¹ä¸ä½ã", url: "https://character.ai" },
+  { name: "Kimi", cat: "chat", icon: "ð", bg: "linear-gradient(135deg,#1e3a5f,#3b82f6)", price: "free", desc: "æä¹æé¢åºåï¼è¶é¿ä¸ä¸æï¼20ä¸+å­ï¼ï¼ä¸­æçè§£ä¸æµã", url: "https://kimi.moonshot.cn" },
+  { name: "è±å", cat: "chat", icon: "ð«", bg: "linear-gradient(135deg,#22c55e,#06b6d4)", price: "free", desc: "å­èè·³å¨åºåï¼åè´¹æ éå¶ï¼ä¸­æå¯¹è¯ä½éªä¼ç§ã", url: "https://www.doubao.com" },
+
+  // AUDIO
+  { name: "ElevenLabs", cat: "audio", icon: "ðï¸", bg: "linear-gradient(135deg,#f97316,#eab308)", price: "freemium", desc: "æé¼çç AI è¯­é³åæï¼åéå£°é³ãå¤è¯­è¨éé³ï¼åå®¹åä½èå¿å¤ã", url: "https://elevenlabs.io" },
+  { name: "Descript Overdub", cat: "audio", icon: "ð§", bg: "linear-gradient(135deg,#6366f1,#a855f7)", price: "freemium", desc: "AI è¯­é³åéç¼è¾ï¼ä¿®æ¹æå­å³ä¿®æ¹å½é³ï¼æ­å®¢å¶ä½ç¥å¨ã", url: "https://descript.com" },
+  { name: "Murf", cat: "audio", icon: "ð", bg: "linear-gradient(135deg,#06b6d4,#3b82f6)", price: "freemium", desc: "AI éé³çæï¼éåè§é¢æç½ãè¯¾ç¨å½å¶ãå¹¿åéé³ã", url: "https://murf.ai" },
+  { name: "Udio", cat: "audio", icon: "ðµ", bg: "linear-gradient(135deg,#ec4899,#8b5cf6)", price: "freemium", desc: "AI é³ä¹çæï¼è¾å¥æè¿°å³å¯åä½å®æ´æ­æ²ï¼å«æ­è¯åæ¼å±ã", url: "https://udio.com" },
+  { name: "Suno", cat: "audio", icon: "ð¶", bg: "linear-gradient(135deg,#22c55e,#06b6d4)", price: "freemium", desc: "AI ä½æ²ç¥å¨ï¼ä¸å¥è¯çæå®æ´æ­æ²ï¼å·²è¯çå¤é¦ç­é¨ä½åã", url: "https://suno.com" },
+];
+
+const priceMap = { free: 'åè´¹', freemium: 'åè´¹+ä»è´¹', paid: 'ä»è´¹' };
+const catNames = { writing:'åä½', image:'å¾å', code:'ç¼ç¨', video:'è§é¢', productivity:'æç', chat:'å¯¹è¯', audio:'é³é¢' };
+let currentCat = 'all';
+let currentSearch = '';
+
+function renderTools() {
+  const grid = document.getElementById('toolsGrid');
+  const noRes = document.getElementById('noResults');
+  const countEl = document.getElementById('toolCount');
+
+  const filtered = tools.filter(t => {
+    const matchCat = currentCat === 'all' || t.cat === currentCat;
+    const matchSearch = currentSearch === '' ||
+      t.name.toLowerCase().includes(currentSearch) ||
+      t.desc.includes(currentSearch) ||
+      catNames[t.cat].includes(currentSearch);
+    return matchCat && matchSearch;
+  });
+
+  countEl.textContent = filtered.length + ' ä¸ªå·¥å·';
+
+  if (filtered.length === 0) {
+    grid.innerHTML = '';
+    noRes.classList.add('show');
+    return;
+  }
+  noRes.classList.remove('show');
+
+  grid.innerHTML = filtered.map(t => `
+    <a class="tool-card" href="${t.url}" target="_blank" rel="noopener">
+      <div class="tool-card-top">
+        <div class="tool-icon" style="background:${t.bg}">${t.icon}</div>
+        <div class="tool-info">
+          <h3>${t.name}</h3>
+          <div class="tool-tags">
+            <span class="tag tag-${t.price}">${priceMap[t.price]}</span>
+            <span class="tag" style="background:rgba(99,102,241,0.15);color:var(--accent)">${catNames[t.cat]}</span>
+          </div>
+        </div>
+      </div>
+      <div class="tool-desc">${t.desc}</div>
+      <div class="tool-card-bottom">
+        <span class="tool-website">${t.url.replace('https://','')}</span>
+        <span class="visit-btn">è®¿é®ç½ç« â</span>
+      </div>
+    </a>
+  `).join('');
+}
+
+document.getElementById('catList').addEventListener('click', e => {
+  if (!e.target.classList.contains('cat-btn')) return;
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+  e.target.classList.add('active');
+  currentCat = e.target.dataset.cat;
+  renderTools();
+});
+
+document.getElementById('searchInput').addEventListener('input', e => {
+  currentSearch = e.target.value.toLowerCase().trim();
+  renderTools();
+});
+
+function subscribe() {
+  const email = document.getElementById('emailInput').value.trim();
+  if (!email || !email.includes('@')) {
+    document.getElementById('emailInput').style.borderColor = '#ef4444';
+    return;
+  }
+  document.getElementById('emailInput').style.borderColor = '';
+  alert('è®¢éæåï¼æ¯å¨ç²¾é AI å·¥å·å°åéå° ' + email);
+}
+
+renderTools();
+</script>
+</body>
+</html>
